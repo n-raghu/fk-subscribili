@@ -14,7 +14,8 @@ There are two ways to use this API
 2. You can completely disable a social networking site i.e. block all (POST/DELETE/DOWNLOAD) reqeusts and at the same time allow one or two (POST/DELETE/DOWNLOAD) requests and block other requests for a site.
 3. Tokens and secret keys are encrypted and will be decrypted only at the time of connecting with the networking site
 4. Has created separate `handlers` folder which is a collection of endpoints to host them separately when moving to cloud
-5. Single Objective functions to easily convert them to Step Functions
+5. Single Objective functions to easily convert them to Amazon Step Functions
+6. Depends on python's **ProcessPoolExecutor** to (POST/DELETE/DOWNLOAD) a request to all configured networking sites in parallel
 
 ### Start this API
 Navigate to `orchestration` folder and hit
@@ -40,5 +41,9 @@ Above command will start two containers, One container will host the API and the
 > Would like to Post/Download/Delete Image: post <br>
 > Enter filename with path: upload.PNG <br>
 ```json
-[{"facebook":"Disabled"},{"instagram":"[Mocked] Posted Image.","op_mode":"mock","status_code":200},{"op_mode":"original","status_code":200,"twitter":{"info":{"twitter":1455231231063310337},"msg":"Posted Image."}}]
+[
+  {"facebook":"Disabled"},
+  {"instagram":"[Mocked] Posted Image.","op_mode":"mock","status_code":200},
+  {"op_mode":"original","status_code":200,"twitter":{"info":{"twitter":1455231231063310337},"msg":"Posted Image."}}
+]
 ```
