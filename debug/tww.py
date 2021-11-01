@@ -3,7 +3,6 @@ from datetime import datetime as dtm
 
 import wget
 import tweepy
-from bson.objectid import ObjectId
 from cryptography.fernet import Fernet
 
 sys.path.append('..')
@@ -11,18 +10,18 @@ from essentials import read_env
 
 cfg = read_env()
 fnm = 'honey_bee.PNG'
-status = f'Image uploaded from Tweepy({str(ObjectId())})'
 
 
 def create_auth_ins(cfg=cfg):
-    key = cfg['key']
+    key = cfg['key'] + '='
     key_secret = cfg['twitter']['key_secret']
     F = Fernet(key.encode())
     key_secret = F.decrypt(key_secret.encode())
-    auth = tweepy.OAuthHandler(cfg['twitter']['key_id'], key_secret.decode())
+    key_id = 'BP' + cfg['twitter']['key_id'] + 'LdL'
+    auth = tweepy.OAuthHandler(key_id, key_secret.decode())
 
     token = cfg['twitter']['token']
-    secret = cfg['twitter']['secret']
+    secret = cfg['twitter']['secret_1'] + cfg['twitter']['secret_2']
     token_ = F.decrypt(token.encode())
     secret_ = F.decrypt(secret.encode())
 

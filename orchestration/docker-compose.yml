@@ -18,7 +18,7 @@ services:
         hostname: host_api
         image: fcoins
         volumes:
-            - /home/raghu.neerukonda/repos/challenges/flipkoins:/subscribili
+            - /home/raghu.neerukonda/repos/fk-subscribili:/subscribili
         networks:
             subscribili:
                 ipv4_address: 172.99.5.16
@@ -30,9 +30,8 @@ services:
         hostname: host_client
         image: fcoins
         volumes:
-            - /home/raghu.neerukonda/repos/challenges/flipkoins:/subscribili
+            - /home/raghu.neerukonda/repos/fk-subscribili:/subscribili
         networks:
             - subscribili
         depends_on:
             - api
-

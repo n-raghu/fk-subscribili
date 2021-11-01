@@ -17,7 +17,7 @@ def create_auth_ins(cfg=cfg):
     F = Fernet(key.encode())
     key_secret = F.decrypt(key_secret.encode())
     key_id = 'BP' + cfg['twitter']['key_id'] + 'LdL'
-    auth = tweepy.OAuthHandler(, key_secret.decode())
+    auth = tweepy.OAuthHandler(key_id, key_secret.decode())
 
     token = cfg['twitter']['token']
     secret = cfg['twitter']['secret_1'] + cfg['twitter']['secret_2']
