@@ -3,3 +3,4 @@ flask==2.0.2
 flask_restful==0.3.9
 requests==2.26.0
 tweepy==4.2.0
+wget==3.2
