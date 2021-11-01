@@ -9,6 +9,13 @@ There are two ways to use this API
 1. Direct API Call
 2. Client (API is wrapped)
 
+### Working Principle with granular level control
+1. API uses `env.yml` to fetch the keys and settings of every social networking
+2. You can completely disable a social networking site i.e. block all (POST/DELETE/DOWNLOAD) reqeusts and at the same time allow one or two (POST/DELETE/DOWNLOAD) requests and block other requests for a site.
+3. Tokens and secret keys are encrypted and will be decrypted only at the time of connecting with the networking site
+4. Has created separate `handlers` folder which is a collection of endpoints to host them separately when moving to cloud
+5. Single Objective functions to easily convert them to Step Functions
+
 ### Start this API
 Navigate to `orchestration` folder and hit
 
@@ -27,4 +34,3 @@ Above command will start two containers, One container will host the API and the
 > POST - Will have to mention the name of the file to be POSTED.
 > DELETE - Latest image will be deleted from all the social networking sites
 > DOWNLOAD - Latest image will be downloaded from all the social networking sites in **zip** format
-
