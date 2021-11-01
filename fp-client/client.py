@@ -43,5 +43,5 @@ if __name__ == '__main__':
         print(download_image())
 
     if usr_action.lower() == 'post':
-        filename = 'honey_bee.PNG'
+        filename = 'upload.PNG'
         print(post_image(filename))
