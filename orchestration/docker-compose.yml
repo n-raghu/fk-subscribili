@@ -28,7 +28,7 @@ services:
 
     client:
         command: sleep 16d
-        working_dir: /subscribili
+        working_dir: /subscribili/fp-client
         container_name: kon_client
         hostname: host_client
         image: fcoins
