@@ -43,5 +43,6 @@ if __name__ == '__main__':
         print(download_image())
 
     if usr_action.lower() == 'post':
-        filename = 'upload.PNG'
+        print('Enter filename with path: ', end='')
+        filename = input()
         print(post_image(filename))

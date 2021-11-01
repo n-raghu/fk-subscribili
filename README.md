@@ -34,3 +34,9 @@ Above command will start two containers, One container will host the API and the
 - POST - Will have to mention the name of the file to be POSTED
 - DELETE - Latest image will be deleted from all the social networking sites
 - DOWNLOAD - Latest image will be downloaded from all the social networking sites in **zip** format
+
+### Sample Execution with Response
+> root@host_client:/subscribili/fp-client# python client.py <br>
+> Would like to Post/Download/Delete Image: post <br>
+> Enter filename with path: upload.PNG <br>
+`[{"facebook":"Disabled"},{"instagram":"[Mocked] Posted Image.","op_mode":"mock","status_code":200},{"op_mode":"original","status_code":200,"twitter":{"info":{"twitter":1455231231063310337},"msg":"Posted Image."}}]`
