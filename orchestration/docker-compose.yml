@@ -1,0 +1,38 @@
+version: "3.6"
+
+networks:
+    subscribili:
+        name: subscribili-net
+        ipam:
+            driver: default
+            config:
+              - subnet: 172.99.5.0/27
+
+services:
+    api:
+        command: python app.py
+        build: .
+        image: fcoins
+        working_dir: /subscribili
+        container_name: kon_api
+        hostname: host_api
+        image: fcoins
+        volumes:
+            - /home/raghu.neerukonda/repos/challenges/flipkoins:/subscribili
+        networks:
+            subscribili:
+                ipv4_address: 172.99.5.16
+
+    client:
+        command: sleep 16d
+        working_dir: /subscribili
+        container_name: kon_client
+        hostname: host_client
+        image: fcoins
+        volumes:
+            - /home/raghu.neerukonda/repos/challenges/flipkoins:/subscribili
+        networks:
+            - subscribili
+        depends_on:
+            - api
+
